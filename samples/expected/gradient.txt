@@ -1,0 +1,9 @@
+# 期望结果：逐条核对下面的 key=value 行；误差口径与公式见仓库根目录 README.md 第二节。
+# 复核方式：python -m palettecut quantize samples/images/gradient.ppm 32 --out var/gradient
+# 再按 README 的公式从 var/gradient 里的 palette.txt 与 indices.pgm 独立重算误差。
+image=samples/images/gradient.ppm
+pixels=76800
+colors_limit=32
+mean_abs_error_max=5.000
+max_pixel_error_max=26
+determinism=同一输入连跑两次：palette.txt 与 indices.pgm 逐字节相同（比对 sha256），report.json 解析后除 elapsed_ms 外逐字段相同，页面除 data-metric="elapsed_ms" 节点外内容一致
